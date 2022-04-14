@@ -12,5 +12,5 @@ len3 = 20000
 
 # 数据集
 tz_data_sets = getData(path1, len1)
-# tz_shuffule_data_sets = getData(path2, len2)
-# yz_data_sets = getData(path3, len3)
+tz_shuffule_data_sets = getData(path2, len2)
+yz_data_sets = getData(path3, len3)
