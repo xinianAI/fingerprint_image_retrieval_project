@@ -13,11 +13,10 @@ import datetime
 
 
 class Data(object):
-    class Struct(object):
-        def __init__(self, id, p_num, points):
-            self.id = id
-            self.point_number = p_num
-            self.points = points
+    def __init__(self, id='', p_num=0, points=[]):
+        self.id = id
+        self.point_number = p_num
+        self.points = points
 
 
 # 输入图像文件，输出为数据类Data数组
