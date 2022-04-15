@@ -12,6 +12,7 @@ class Data(object):
 
 # 输入图像文件，输出为数据类Data数组
 def getData(path, len):
+    # t_s = datetime.datetime.now()
     myfile = open(path)
     data_N = [Data() for i in range(1, len+1)]
     i = 0
@@ -33,6 +34,8 @@ def getData(path, len):
             # print(data_N[i].point_number)
             # print(data_N[i].points)
             i += 1
+    # t_e = datetime.datetime.now()
+    # print(t_e - t_s)
 
     myfile.close()
     return data_N

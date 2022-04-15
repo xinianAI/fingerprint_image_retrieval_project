@@ -49,10 +49,10 @@ if __name__ == '__main__':
     yz_data_sets = getData(path3_txt, len3)
 
     # 极直坐标转换后的数据集
-    tz_data_sets = transform(tz_data_sets)
-    tz_shuffule_data_sets = transform(tz_shuffule_data_sets)
-    yz_data_sets = transform(yz_data_sets)
+    # tz_data_sets = transform(tz_data_sets)
+    # tz_shuffule_data_sets = transform(tz_shuffule_data_sets)
+    # yz_data_sets = transform(yz_data_sets)
 
-    get_plot(tz_data_sets)
-    get_plot(tz_shuffule_data_sets)
-    get_plot(yz_data_sets)
+    # get_plot(tz_data_sets)
+    # get_plot(tz_shuffule_data_sets)
+    # get_plot(yz_data_sets)
