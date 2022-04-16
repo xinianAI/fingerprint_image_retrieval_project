@@ -3,16 +3,23 @@ This script is used for the data preprocessing.
 """
 
 
+class point(object):
+    def __init__(self):
+        self.x = None
+        self.y = None
+        self.dct = None
+        self.id = None
+
+
 class Data(object):
-    def __init__(self, id='', p_num=0, points=[]):
-        self.id = id
-        self.point_number = p_num
-        self.points = points
+    def __init__(self):
+        self.id = None
+        self.point_number = None
+        self.points = point()
 
 
 # 输入图像文件，输出为数据类Data数组
 def getData(path, len):
-    # t_s = datetime.datetime.now()
     myfile = open(path)
     data_N = [Data() for i in range(1, len+1)]
     i = 0
@@ -29,13 +36,21 @@ def getData(path, len):
                 data_N[i].id = row[0]
             data_N[i].point_number = row[1]
             num = int(data_N[i].point_number)
-            data_N[i].points = [[int(row[j]), int(row[j+1]), int(row[j+2])] for j in range(2, num*3 + 2, 3)]
-            # print(data_N[i].id)
-            # print(data_N[i].point_number)
-            # print(data_N[i].points)
+            data_N[i].points = [point() for j in range(num)]
+            for j in range(2, num * 3 + 2, 3):
+                idx = int((j-2)/3)
+                data_N[i].points[idx].x = int(row[j])
+                data_N[i].points[idx].y = int(row[j+1])
+                data_N[i].points[idx].dct = int(row[j+2])
+                data_N[i].points[idx].id = data_N[i].id + "_" + str(idx)
+            print("point_id: ", data_N[i].id)
+            for j in range(num):
+                print("x: ", data_N[i].points[j].x)
+                print("y: ", data_N[i].points[j].y)
+                print("dct: ", data_N[i].points[j].dct)
+                print("id: ", data_N[i].points[j].id)
+            print("***************")
             i += 1
-    # t_e = datetime.datetime.now()
-    # print(t_e - t_s)
 
     myfile.close()
     return data_N

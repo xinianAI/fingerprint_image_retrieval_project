@@ -4,7 +4,7 @@ from utils.data_preprocessing import getData
 """
     哈希表
     inputs: 数据库中N个指纹模板， M个细节点位置以及方向信息 type: list (N * M * 3 x 1)
-    processes:
+    processes: f(L, theta, points.id, id) = (points.id, id)
     outputs: N个指纹模板ID, N * M个核心细节点ID, 特征向量作为索引的参数
 """
 
@@ -74,3 +74,12 @@ class hash_table():
 
     def __setitem__(self, key, data):
         self.put(key, data)
+
+
+if __name__ == '__main__':
+    H = hash_table(len1)
+    H.put(key=50, data='cat')
+    H.put(key=2000, data='bear')
+    print(H[50])
+    print(H[2000])
+    print(H.get(2000))
