@@ -3,6 +3,7 @@ from coordinate_transformation import transform
 import numpy as np
 import pandas
 import matplotlib.pyplot as plt
+from data_preprocessing import change_to_temple
 # 路径
 path1_txt = r'../data_sets/raw_data/TZ_同指.txt'
 path2_txt = r'../data_sets/raw_data/TZ_同指200_乱序后_Data.txt'
@@ -47,12 +48,13 @@ if __name__ == '__main__':
     tz_data_sets = getData(path1_txt, len1)
     tz_shuffule_data_sets = getData(path2_txt, len2)
     yz_data_sets = getData(path3_txt, len3)
+    change_to_temple(tz_data_sets[0])
 
-    # 极直坐标转换后的数据集
-    tz_data_sets = transform(tz_data_sets)
-    tz_shuffule_data_sets = transform(tz_shuffule_data_sets)
-    yz_data_sets = transform(yz_data_sets)
-
-    get_plot(tz_data_sets)
-    get_plot(tz_shuffule_data_sets)
-    get_plot(yz_data_sets)
+    # # 极直坐标转换后的数据集
+    # tz_data_sets = transform(tz_data_sets)
+    # tz_shuffule_data_sets = transform(tz_shuffule_data_sets)
+    # yz_data_sets = transform(yz_data_sets)
+    #
+    # get_plot(tz_data_sets)
+    # get_plot(tz_shuffule_data_sets)
+    # get_plot(yz_data_sets)
