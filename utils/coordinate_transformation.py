@@ -10,12 +10,12 @@ import math
 def transform(data_sets):
     for i in range(len(data_sets)):
         for j in range(int(data_sets[i].point_number)):
-            tmp = math.sqrt(pow(data_sets[i].points[j][0], 2) + pow(data_sets[i].points[j][1], 2))
-            data_sets[i].points[j][1] = data_sets[i].points[j][0], data_sets[i].points[j][1] = math.sqrt(
-                pow(data_sets[i].points[j][0], 2) + pow(data_sets[i].points[j][1], 2)), math.atan2(
-                data_sets[i].points[j][0], data_sets[i].points[j][1]),
-            data_sets[i].points[j][2] = data_sets[i].points[j][2] / (180 * cmath.pi)
-            data_sets[i].points[j][0] = tmp
+            tmp = math.sqrt(pow(data_sets[i].points[j].x, 2) + pow(data_sets[i].points[j].y, 2))
+            data_sets[i].points[j].y = data_sets[i].points[j].x, data_sets[i].points[j].y = math.sqrt(
+                pow(data_sets[i].points[j].x, 2) + pow(data_sets[i].points[j].y, 2)), math.atan2(
+                data_sets[i].points[j].x, data_sets[i].points[j].y),
+            data_sets[i].points[j].dct = data_sets[i].points[j].dct / (180 * cmath.pi)
+            data_sets[i].points[j].x = tmp
             # print("arc1", data_sets[i].points[j][1])
             # print("arc2", data_sets[i].points[j][2])
     return data_sets
